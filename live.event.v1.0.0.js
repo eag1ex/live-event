@@ -12,7 +12,7 @@ This is the most accommodating of licenses offered. Recommended for
 maximum dissemination and use of licensed materials.
 
  */
-
+  
 
 
 
