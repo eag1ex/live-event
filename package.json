@@ -1,0 +1,21 @@
+{
+  "name": "live-event",
+  "version": "1.0.0",
+  "description": "Just like the name describes, this neak script deliveres and binds events using 'dispatch' and 'watch'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "eaglex.net",
+  "license": "ISC",
+  "devDependencies": {
+    "bash-color": "0.0.4",
+    "lodash": "^4.17.10",
+    "q": "^1.5.1"
+  },
+  
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  }
+}
