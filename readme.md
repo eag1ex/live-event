@@ -49,12 +49,15 @@ liveEvnt.watch('delayedEvent,(d)=>{
 //// you can also delete the event with
 liveEvnt.delete('eventMagic'); /// or 'eventMagic,moreMagic'
 
+
+
 ```
 ## 
 
 ###### - Usage and Support
-Current version is only available on node.js, not been tasted on browser client, its build on ES5
+* Current version is only available on node.js, not been tasted on browser client, its build on ES5
+* More examples provided in the index.js file
 
-   
+
 #### - log
 * 26/08/2018 > Live Event 1.0.0, First version launched.
