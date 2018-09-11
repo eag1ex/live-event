@@ -6,10 +6,6 @@
  * SOURCE: https://creativecommons.org/licenses/by/4.0/legalcode
  * 
  * 
-This license lets others distribute, remix, tweak, and build upon your work, 
-even commercially, as long as they credit you for the original creation. 
-This is the most accommodating of licenses offered. Recommended for 
-maximum dissemination and use of licensed materials.
 
  */
   
@@ -129,10 +125,17 @@ class LiveEvent {
     };
 
     delete(eventNames, cb) {
-        var check = eventNames.replace(/ /g, "");
+        if(!eventNames){
+            console.debug(`eventName/watchInstance ${eventNames} not set!`)
+        }
+        var check = eventNames.replace(/\s/g, '');
         var have_multiple = check.split(",");
         var one_callback = 1;
         var inst = have_multiple.map((env, inx) => {
+            if(!this.watchInstance[env]) {
+                console.debug(`no live eventName's found to delete!`)
+                return 
+            }
             if (this._instance[env]) delete this._instance[env];
             if (this.watchInstance[env]) delete this.watchInstance[env];
             if (!this.watchInstance[env] && !this._instance[env] && one_callback === 1) {
@@ -226,7 +229,7 @@ class LiveEvent {
             console.debug('eventName should be a string', eventName)
             return
         }
-        var check = eventName.replace(/ /g, "");
+        var check = eventName.replace(/\s/g, '');
         var have_multiple = check.split(",");
         var _t = this;
 
@@ -287,13 +290,45 @@ class LiveEvent {
         return inst;
     }
 
+    errorHandler(str, type = 'watch') {
+
+        if (!str && type === 'dispatch') {
+            console.debug('dispatch, need to provide eventName');
+            return;
+        }
+
+        if (!str && type === 'watch') {
+            console.debug('watch, need to provide eventName');
+            return true;
+        }
+
+        if (type === 'dispatch' && str.indexOf(',') !== -1) {
+            console.debug(`watch, eventName :'${str}' invalid setting`);
+            return true;
+        }
+
+        if (!_.isString(str)) {
+            console.debug(`watch, eventName :${str} should be a string`);
+            return true;
+        }
+
+        if (str.indexOf(',') !== -1 && str.length === 1 && type === 'watch') {
+            console.debug(`watch, eventName :'${str}' invalid setting`);
+            return true;
+        }
+
+        if (str.indexOf(' ') !== -1 && str.length === 1) {
+            console.debug(`watch, eventName :'${str}' cannot be an empty space`);
+            return true;
+        }
+
+        return false;
+    }
 
     watch(eventName, cb) {
-
-        if (!eventName) {
-            console.debug('watch, need to provice eventName');
-            return false;
-        }
+        
+        var err = this.errorHandler(eventName,'watch');
+        if(err) return;
 
         setTimeout(() => {
             var evn;
@@ -321,10 +356,9 @@ class LiveEvent {
 
     dispatch(eventName, data) {
 
-        if (!eventName) {
-            console.debug('dispatch, need to provide eventName');
-            return;
-        }
+        var err = this.errorHandler(eventName,'dispatch');
+        if(err) return;
+        
 
         if (typeof data === 'string') {
             data = { data: data }

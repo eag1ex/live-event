@@ -2,7 +2,7 @@
 ##### - Name: Live Event
 
 #### - Description
-This neat script has been developed to help with inclosures and callbacks, to make it more neater in your code, easy to understand. The functionality is.. well you can dig-in to the code to workout what it does, simply said, it uses class instance for every watch/dispatch.
+This neat script has been developed to help with inclosures and callbacks, to make it more neater in your code, easy to understand. The functionality is.. well you can dig-in to the code to workout what it does, simply said, it uses class instance for every watch/dispatch and registeres the callback.
 
 ###### - More Technical Description:
 Calling the script is easy and no matter if you call `watch` or `dispatch` first, the order does not matter, there is a QUE functionality which detects when the pairs are matched. You call each pair with its unique 'eventName' of type string, you may also use multiple events seperated by commas on your `liveEvent.dispatch('eventMagic,moreMagic'`..., you cannot use it on that watch, because it is designed to handle each event respons seperatly. Every event data is recycled/ after it has been called, so no worry with memory leaks.
@@ -28,12 +28,12 @@ liveEvnt.dispatch('anotherEvent,andOneMore',{data:'some string value',index:0});
 
 liveEvnt.watch('anotherEvent,(d)=>{
         const data = d.resp;
-        console.log('eventMagic cb', data);
+        console.log('anotherEvent cb', data);
 })
 
 liveEvnt.watch('andOneMore,(d)=>{
         const data = d.resp;
-        console.log('eventMagic cb', data);
+        console.log('andOneMore cb', data);
 })
 
 
@@ -43,7 +43,7 @@ setTimeout(()=>{
 
 liveEvnt.watch('delayedEvent,(d)=>{
         const data = d.resp;
-        console.log('eventMagic cb', data);
+        console.log('delayedEvent cb', data);
 })
 
 //// you can also delete the event with
@@ -62,11 +62,6 @@ liveEvnt.delete('eventMagic'); /// or 'eventMagic,moreMagic'
 ###### - LICENSE
  * LICENCE: CC BY
  * SOURCE: https://creativecommons.org/licenses/by/4.0/legalcode
- * This license lets others distribute, remix, tweak, and build upon your work, 
-even commercially, as long as they credit you for the original creation. 
-This is the most accommodating of licenses offered. Recommended for 
-maximum dissemination and use of licensed materials.
-
 
 
 
