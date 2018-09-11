@@ -1,6 +1,6 @@
 {
   "name": "live-event",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just like the name describes, this neak script deliveres and binds events using 'dispatch' and 'watch'",
   "main": "index.js",
   "scripts": {
