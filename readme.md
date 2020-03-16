@@ -31,7 +31,7 @@ liveEvnt.watch('anotherEvent,(d)=>{
         console.log('anotherEvent cb', data);
 })
 
-liveEvnt.watch('andOneMore,(d)=>{
+liveEvnt.watch('andOneMore',(d)=>{
         const data = d.resp;
         console.log('andOneMore cb', data);
 })
@@ -41,7 +41,7 @@ setTimeout(()=>{
     liveEvnt.dispatch('delayedEvent',{data:'some string value',index:0});    
 },5555)
 
-liveEvnt.watch('delayedEvent,(d)=>{
+liveEvnt.watch('delayedEvent',(d)=>{
         const data = d.resp;
         console.log('delayedEvent cb', data);
 })

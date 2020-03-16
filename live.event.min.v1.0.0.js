@@ -1,9 +1,7 @@
 /**
  * LICENCE: CC BY
  * SOURCE: https://creativecommons.org/licenses/by/4.0/legalcode
- * 
  * minified with : https://www.minifier.org/
-
  */
 
 "use strict";var _=require('lodash');var color=require('bash-color');class LiveEvent{constructor(opts){this._promise={};this._instance={};this.watchInstance={};this._eventQue={};this.debug=null;this.presets(opts)}

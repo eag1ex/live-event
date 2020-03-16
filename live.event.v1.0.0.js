@@ -90,7 +90,7 @@ class LiveEvent {
                         setTimeout(() => {
                             this.__cb(item); // magic
                             this.index++;
-                        }, 100)
+                        }, 50)
                         return item
                     })
                     this.historyData = []; // clear the events bin
@@ -143,7 +143,7 @@ class LiveEvent {
                 if (typeof cb === 'function') {
                     setTimeout(() => {
                         cb(true)
-                    }, 100)
+                    }, 50)
                     one_callback++;
                 }
             }
@@ -217,7 +217,7 @@ class LiveEvent {
             if (typeof final_cb === 'function') {
                 setTimeout(function () {
                     final_cb(true);
-                }, 166);
+                }, 50);
             }
         }
 
@@ -350,7 +350,7 @@ class LiveEvent {
                 }
 
             }, true)
-        }, 200)
+        }, 100)
 
     }
 

@@ -13,9 +13,14 @@
     "lodash": "^4.17.10",
     "q": "^1.5.1"
   },
-  
   "engine": {
     "node": "*",
     "npm": "*"
+  },
+  "dependencies": {
+    "http": "0.0.0",
+    "http-server": "^0.11.1",
+    "markdown-to-html": "0.0.13",
+    "server": "^1.0.19"
   }
 }
