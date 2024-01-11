@@ -9,8 +9,8 @@ Calling the script is easy and no matter if you call `watch` or `dispatch` first
 
 
 ###### - usage:
-```
-#!python
+
+```js
 
 var LiveEvent  = require('./live.event');
 
